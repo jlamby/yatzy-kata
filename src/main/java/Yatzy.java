@@ -26,13 +26,7 @@ public class Yatzy {
     }
 
     public int chance() {
-        int total = 0;
-
-        for (int i = 0; i < dice.length; i++) {
-            total += dice[i];
-        }
-
-        return total;
+        return dices.stream().reduce(0, Integer::sum);
     }
 
     public int yatzy() {
@@ -76,15 +70,10 @@ public class Yatzy {
     }
 
     private int sumAllDiceWithValue(int value) {
-        int sum = 0;
-
-        for (int i = 0; i < dice.length; i++) {
-            if (dice[i] == value) {
-                sum += value;
-            }
-        }
-
-        return sum;
+        return dices
+            .stream()
+            .filter(diceValue -> value == diceValue)
+            .reduce(0, Integer::sum);
     }
 
     public int pair() {

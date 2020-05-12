@@ -73,16 +73,16 @@ public class YatzyTest {
 
     @Test
     public void threeOfKind_scoring_category_should_return_sum_of_three_dice_with_the_same_number() {
-        assertEquals(9, Yatzy.threeOfKind(3, 3, 3, 4, 5));
-        assertEquals(15, Yatzy.threeOfKind(5, 3, 5, 4, 5));
-        assertEquals(9, Yatzy.threeOfKind(3, 3, 3, 3, 5));
+        assertEquals(9, new Yatzy(3, 3, 3, 4, 5).threeOfKind());
+        assertEquals(15, new Yatzy(5, 3, 5, 4, 5).threeOfKind());
+        assertEquals(9, new Yatzy(3, 3, 3, 3, 5).threeOfKind());
     }
 
     @Test
     public void fourOfKind_scoring_category_should_return_sum_of_four_dice_with_the_same_number() {
         assertEquals(12, Yatzy.fourOfKind(3, 3, 3, 3, 5));
         assertEquals(20, Yatzy.fourOfKind(5, 5, 5, 4, 5));
-        assertEquals(9, Yatzy.threeOfKind(3, 3, 3, 3, 3)); // !
+        assertEquals(9, new Yatzy(3, 3, 3, 3, 3).threeOfKind()); // !
     }
 
     @Test

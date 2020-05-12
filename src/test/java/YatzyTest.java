@@ -101,7 +101,7 @@ public class YatzyTest {
 
     @Test
     public void fullHouse_scoring_category_should_return_the_sum_of_all_dice_when_the_dice_are_two_of_a_kind_and_three_of_a_kind() {
-        assertEquals(18, Yatzy.fullHouse(6, 2, 2, 2, 6));
-        assertEquals(0, Yatzy.fullHouse(2, 3, 4, 5, 6));
+        assertEquals(18, new Yatzy(6, 2, 2, 2, 6).fullHouse());
+        assertEquals(0, new Yatzy(2, 3, 4, 5, 6).fullHouse());
     }
 }

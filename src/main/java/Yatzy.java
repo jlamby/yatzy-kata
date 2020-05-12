@@ -11,38 +11,6 @@ public class Yatzy {
         dice[4] = d5;
     }
 
-    public int fours() {
-        int sum;
-        sum = 0;
-        for (int at = 0; at != 5; at++) {
-            if (dice[at] == 4) {
-                sum += 4;
-            }
-        }
-        return sum;
-    }
-
-    public int fives() {
-        int s = 0;
-        int i;
-        for (i = 0; i < dice.length; i++) {
-            if (dice[i] == 5) {
-                s = s + 5;
-            }
-        }
-        return s;
-    }
-
-    public int sixes() {
-        int sum = 0;
-        for (int at = 0; at < dice.length; at++) {
-            if (dice[at] == 6) {
-                sum = sum + 6;
-            }
-        }
-        return sum;
-    }
-
     public int chance() {
         int total = 0;
 
@@ -70,35 +38,35 @@ public class Yatzy {
     }
 
     public int ones() {
-        int sum = 0;
-
-        for (int i = 0; i < dice.length; i++) {
-            if (dice[i] == 1) {
-                sum += 1;
-            }
-        }
-
-        return sum;
+        return sumAllDiceWithValue(1);
     }
 
     public int twos() {
-        int sum = 0;
-
-        for (int i = 0; i < dice.length; i++) {
-            if (dice[i] == 2) {
-                sum += 2;
-            }
-        }
-
-        return sum;
+        return sumAllDiceWithValue(2);
     }
 
     public int threes() {
+        return sumAllDiceWithValue(3);
+    }
+
+    public int fours() {
+        return sumAllDiceWithValue(4);
+    }
+
+    public int fives() {
+        return sumAllDiceWithValue(5);
+    }
+
+    public int sixes() {
+        return sumAllDiceWithValue(6);
+    }
+
+    private int sumAllDiceWithValue(int value) {
         int sum = 0;
 
         for (int i = 0; i < dice.length; i++) {
-            if (dice[i] == 3) {
-                sum += 3;
+            if (dice[i] == value) {
+                sum += value;
             }
         }
 

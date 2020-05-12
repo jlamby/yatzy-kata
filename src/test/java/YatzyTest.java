@@ -94,9 +94,9 @@ public class YatzyTest {
 
     @Test
     public void largeStraight_scoring_category_should_return_20_when_dice_number_are_from_two_to_six() {
-        assertEquals(20, Yatzy.largeStraight(6, 2, 3, 4, 5));
-        assertEquals(20, Yatzy.largeStraight(2, 3, 4, 5, 6));
-        assertEquals(0, Yatzy.largeStraight(1, 2, 2, 4, 5));
+        assertEquals(20, new Yatzy(6, 2, 3, 4, 5).largeStraight());
+        assertEquals(20, new Yatzy(2, 3, 4, 5, 6).largeStraight());
+        assertEquals(0, new Yatzy(1, 2, 2, 4, 5).largeStraight());
     }
 
     @Test

@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Yatzy {
 
@@ -151,19 +153,9 @@ public class Yatzy {
     }
 
     public int smallStraight() {
-        int[] tallies = new int[6];
-        tallies[dice[0] - 1] += 1;
-        tallies[dice[1] - 1] += 1;
-        tallies[dice[2] - 1] += 1;
-        tallies[dice[3] - 1] += 1;
-        tallies[dice[4] - 1] += 1;
+        Set<Integer> set = new HashSet<>(dices);
 
-        if (tallies[0] == 1 &&
-                tallies[1] == 1 &&
-                tallies[2] == 1 &&
-                tallies[3] == 1 &&
-                tallies[4] == 1) {
-
+        if (set.size() == 5 && set.contains(1)) {
             return 15;
         }
 
@@ -171,19 +163,9 @@ public class Yatzy {
     }
 
     public int largeStraight() {
-        int[] tallies = new int[6];
-        tallies[dice[0] - 1] += 1;
-        tallies[dice[1] - 1] += 1;
-        tallies[dice[2] - 1] += 1;
-        tallies[dice[3] - 1] += 1;
-        tallies[dice[4] - 1] += 1;
+        Set<Integer> set = new HashSet<>(dices);
 
-        if (tallies[1] == 1 &&
-                tallies[2] == 1 &&
-                tallies[3] == 1 &&
-                tallies[4] == 1
-                && tallies[5] == 1) {
-
+        if (set.size() == 5 && !set.contains(1)) {
             return 20;
         }
 

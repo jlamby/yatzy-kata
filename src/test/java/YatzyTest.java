@@ -67,8 +67,8 @@ public class YatzyTest {
 
     @Test
     public void twoPair_scoring_category_should_return_sum_of_the_two_pairs_of_dice_with_the_same_number() {
-        assertEquals(16, Yatzy.twoPair(3, 3, 5, 4, 5));
-        assertEquals(16, Yatzy.twoPair(3, 3, 5, 5, 5));
+        assertEquals(16, new Yatzy(3, 3, 5, 4, 5).twoPair());
+        assertEquals(16, new Yatzy(3, 3, 5, 5, 5).twoPair());
     }
 
     @Test

@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -20,10 +19,10 @@ public class YatzyTest {
 
     @Test
     public void ones_scoring_category_should_sum_all_dices_with_one() {
-        assertTrue(Yatzy.ones(1, 2, 3, 4, 5) == 1);
-        assertEquals(2, Yatzy.ones(1, 2, 1, 4, 5));
-        assertEquals(0, Yatzy.ones(6, 2, 2, 4, 5));
-        assertEquals(4, Yatzy.ones(1, 2, 1, 1, 1));
+        assertEquals(1, new Yatzy(1, 2, 3, 4, 5).ones());
+        assertEquals(2, new Yatzy(1, 2, 1, 4, 5).ones());
+        assertEquals(0, new Yatzy(6, 2, 2, 4, 5).ones());
+        assertEquals(4, new Yatzy(1, 2, 1, 1, 1).ones());
     }
 
     @Test

@@ -27,8 +27,8 @@ public class YatzyTest {
 
     @Test
     public void twos_scoring_category_should_sum_all_dices_with_two() {
-        assertEquals(4, Yatzy.twos(1, 2, 3, 2, 6));
-        assertEquals(10, Yatzy.twos(2, 2, 2, 2, 2));
+        assertEquals(4, new Yatzy(1, 2, 3, 2, 6).twos());
+        assertEquals(10, new Yatzy(2, 2, 2, 2, 2).twos());
     }
 
     @Test

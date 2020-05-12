@@ -114,22 +114,14 @@ public class Yatzy {
     }
 
     public int threeOfKind() {
-        int[] t;
-        t = new int[6];
-        t[dice[0] - 1]++;
-        t[dice[1] - 1]++;
-        t[dice[2] - 1]++;
-        t[dice[3] - 1]++;
-        t[dice[4] - 1]++;
-        for (int i = 0; i < 6; i++) {
-            if (t[i] >= 3) {
-                return (i + 1) * 3;
-            }
-        }
-        return 0;
+        return sumOfDiceWithSameValue(3);
     }
 
     public int fourOfKind() {
+        return sumOfDiceWithSameValue(4);
+    }
+
+    private int sumOfDiceWithSameValue(int numberOfDiceWithSameValue) {
         int[] tallies;
         tallies = new int[6];
         tallies[dice[0] - 1]++;
@@ -137,11 +129,13 @@ public class Yatzy {
         tallies[dice[2] - 1]++;
         tallies[dice[3] - 1]++;
         tallies[dice[4] - 1]++;
+
         for (int i = 0; i < 6; i++) {
-            if (tallies[i] >= 4) {
-                return (i + 1) * 4;
+            if (tallies[i] >= numberOfDiceWithSameValue) {
+                return (i + 1) * numberOfDiceWithSameValue;
             }
         }
+
         return 0;
     }
 

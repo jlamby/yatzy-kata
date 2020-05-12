@@ -60,9 +60,9 @@ public class YatzyTest {
 
     @Test
     public void pair_scoring_category_should_return_sum_of_the_two_highest_matching_pair_of_dice() {
-        assertEquals(6, Yatzy.pair(3, 4, 3, 5, 6));
-        assertEquals(10, Yatzy.pair(5, 3, 3, 3, 5));
-        assertEquals(12, Yatzy.pair(5, 3, 6, 6, 5));
+        assertEquals(6, new Yatzy(3, 4, 3, 5, 6).pair());
+        assertEquals(10, new Yatzy(5, 3, 3, 3, 5).pair());
+        assertEquals(12, new Yatzy(5, 3, 6, 6, 5).pair());
     }
 
     @Test

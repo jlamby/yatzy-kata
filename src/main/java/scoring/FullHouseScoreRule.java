@@ -5,7 +5,7 @@ import java.util.List;
 public class FullHouseScoreRule implements ScoreRule {
 
     private ScoreRule pairScoreRule = new PairScoreRule();
-    private ScoreRule threeOfKingScoreRule = ValueOfKingScoreRule.threeOfKind;
+    private ScoreRule threeOfKingScoreRule = ValueOfKindScoreRule.threeOfKind;
     private ScoreRule chanceScoreRule = new ChanceScoreRule();
 
     @Override

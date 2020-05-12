@@ -8,7 +8,7 @@ import scoring.LargeStraightScoreRule;
 import scoring.PairScoreRule;
 import scoring.SmallStraightScoreRule;
 import scoring.TwoPairScoreRule;
-import scoring.ValueOfKingScoreRule;
+import scoring.ValueOfKindScoreRule;
 import scoring.ValueScoreRule;
 import scoring.YatzyScoreRule;
 
@@ -76,13 +76,13 @@ public class YatzyTest {
 
     @Test
     public void threeOfKind_scoring_category_should_return_sum_of_three_dice_with_the_same_number() {
-        int computedScore = new Yatzy(5, 3, 5, 4, 5).computeScore(ValueOfKingScoreRule.threeOfKind);
+        int computedScore = new Yatzy(5, 3, 5, 4, 5).computeScore(ValueOfKindScoreRule.threeOfKind);
         assertThat(computedScore).isEqualTo(15);
     }
 
     @Test
     public void fourOfKind_scoring_category_should_return_sum_of_four_dice_with_the_same_number() {
-        int computedScore = new Yatzy(5, 5, 5, 4, 5).computeScore(ValueOfKingScoreRule.fourOfKind);
+        int computedScore = new Yatzy(5, 5, 5, 4, 5).computeScore(ValueOfKindScoreRule.fourOfKind);
         assertThat(computedScore).isEqualTo(20);
     }
 

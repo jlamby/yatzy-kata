@@ -3,14 +3,14 @@ package scoring;
 import java.util.List;
 import java.util.Map;
 
-public class ValueOfKingScoreRule implements ScoreRule {
+public class ValueOfKindScoreRule implements ScoreRule {
 
-    public static final ScoreRule threeOfKind = new ValueOfKingScoreRule(3);
-    public static final ScoreRule fourOfKind = new ValueOfKingScoreRule(4);
+    public static final ScoreRule threeOfKind = new ValueOfKindScoreRule(3);
+    public static final ScoreRule fourOfKind = new ValueOfKindScoreRule(4);
 
     private int value;
 
-    ValueOfKingScoreRule(int value) {
+    ValueOfKindScoreRule(int value) {
         this.value = value;
     }
 

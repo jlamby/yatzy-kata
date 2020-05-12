@@ -1,6 +1,12 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Yatzy {
 
     private int[] dice;
+    private List<Integer> dices = new ArrayList<>();
 
     public Yatzy(int d1, int d2, int d3, int d4, int d5) {
         dice = new int[5];
@@ -9,6 +15,12 @@ public class Yatzy {
         dice[2] = d3;
         dice[3] = d4;
         dice[4] = d5;
+
+        dices.add(d1);
+        dices.add(d2);
+        dices.add(d3);
+        dices.add(d4);
+        dices.add(d5);
     }
 
     public int chance() {
@@ -74,43 +86,34 @@ public class Yatzy {
     }
 
     public int pair() {
-        int[] counts = new int[6];
-        counts[dice[0] - 1]++;
-        counts[dice[1] - 1]++;
-        counts[dice[2] - 1]++;
-        counts[dice[3] - 1]++;
-        counts[dice[4] - 1]++;
-        int at;
-        for (at = 0; at != 6; at++) {
-            if (counts[6 - at - 1] >= 2) {
-                return (6 - at) * 2;
+        Map<Integer, Integer> countByDiceNumber = computeCountByDiceNumber();
+
+        for (int diceNumber = 6; diceNumber != 0; diceNumber--) {
+            if (countByDiceNumber.getOrDefault(diceNumber, 0) >= 2) {
+                return diceNumber * 2;
             }
         }
+
         return 0;
     }
 
     public int twoPair() {
-        int[] counts = new int[6];
-        counts[dice[0] - 1]++;
-        counts[dice[1] - 1]++;
-        counts[dice[2] - 1]++;
-        counts[dice[3] - 1]++;
-        counts[dice[4] - 1]++;
-        int n = 0;
+        Map<Integer, Integer> countByDiceNumber = computeCountByDiceNumber();
+        int numberOfPairs = 0;
         int score = 0;
 
-        for (int i = 0; i < 6; i += 1) {
-            if (counts[6 - i - 1] >= 2) {
-                n++;
-                score += (6 - i);
+        for (int diceNumber = 6; diceNumber != 0; diceNumber--) {
+            if (countByDiceNumber.getOrDefault(diceNumber, 0) >= 2) {
+                score += diceNumber * 2;
+                numberOfPairs++;
             }
         }
 
-        if (n == 2) {
-            return score * 2;
-        } else {
-            return 0;
+        if (numberOfPairs == 2) {
+            return score;
         }
+
+        return 0;
     }
 
     public int threeOfKind() {
@@ -122,21 +125,29 @@ public class Yatzy {
     }
 
     private int sumOfDiceWithSameValue(int numberOfDiceWithSameValue) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[dice[0] - 1]++;
-        tallies[dice[1] - 1]++;
-        tallies[dice[2] - 1]++;
-        tallies[dice[3] - 1]++;
-        tallies[dice[4] - 1]++;
+        Map<Integer, Integer> countByDiceNumber = computeCountByDiceNumber();
 
-        for (int i = 0; i < 6; i++) {
-            if (tallies[i] >= numberOfDiceWithSameValue) {
-                return (i + 1) * numberOfDiceWithSameValue;
+        for (int diceNumber = 1; diceNumber <= 6; diceNumber++) {
+
+            if (countByDiceNumber.getOrDefault(diceNumber, 0) >= numberOfDiceWithSameValue) {
+                return diceNumber * numberOfDiceWithSameValue;
             }
         }
 
         return 0;
+    }
+
+    private Map<Integer, Integer> computeCountByDiceNumber() {
+        Map<Integer, Integer> countByDiceNumber = new HashMap<>();
+
+        for (int value : dices) {
+            Integer currentCount = countByDiceNumber.getOrDefault(value, 0);
+            currentCount++;
+
+            countByDiceNumber.put(value, currentCount);
+        }
+
+        return countByDiceNumber;
     }
 
     public int smallStraight() {

@@ -87,9 +87,9 @@ public class YatzyTest {
 
     @Test
     public void smallStraight_scoring_category_should_return_15_when_dice_number_are_from_one_to_five() {
-        assertEquals(15, Yatzy.smallStraight(1, 2, 3, 4, 5));
-        assertEquals(15, Yatzy.smallStraight(2, 3, 4, 5, 1));
-        assertEquals(0, Yatzy.smallStraight(1, 2, 2, 4, 5));
+        assertEquals(15, new Yatzy(1, 2, 3, 4, 5).smallStraight());
+        assertEquals(15, new Yatzy(2, 3, 4, 5, 1).smallStraight());
+        assertEquals(0, new Yatzy(1, 2, 2, 4, 5).smallStraight());
     }
 
     @Test

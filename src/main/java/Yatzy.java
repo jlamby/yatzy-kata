@@ -7,17 +7,9 @@ import java.util.Set;
 
 public class Yatzy {
 
-    private int[] dice;
     private List<Integer> dices = new ArrayList<>();
 
     public Yatzy(int d1, int d2, int d3, int d4, int d5) {
-        dice = new int[5];
-        dice[0] = d1;
-        dice[1] = d2;
-        dice[2] = d3;
-        dice[3] = d4;
-        dice[4] = d5;
-
         dices.add(d1);
         dices.add(d2);
         dices.add(d3);
@@ -30,16 +22,10 @@ public class Yatzy {
     }
 
     public int yatzy() {
-        int[] counts = new int[6];
+        Set<Integer> set = new HashSet<>(dices);
 
-        for (int die : dice) {
-            counts[die - 1]++;
-        }
-
-        for (int i = 0; i != 6; i++) {
-            if (counts[i] == 5) {
-                return 50;
-            }
+        if (set.size() == 1) {
+            return 50;
         }
 
         return 0;

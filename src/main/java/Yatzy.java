@@ -93,25 +93,16 @@ public class Yatzy {
         return sum;
     }
 
-    public static int threes(int d1, int d2, int d3, int d4, int d5) {
-        int s;
-        s = 0;
-        if (d1 == 3) {
-            s += 3;
+    public int threes() {
+        int sum = 0;
+
+        for (int i = 0; i < dice.length; i++) {
+            if (dice[i] == 3) {
+                sum += 3;
+            }
         }
-        if (d2 == 3) {
-            s += 3;
-        }
-        if (d3 == 3) {
-            s += 3;
-        }
-        if (d4 == 3) {
-            s += 3;
-        }
-        if (d5 == 3) {
-            s += 3;
-        }
-        return s;
+
+        return sum;
     }
 
     public static int pair(int d1, int d2, int d3, int d4, int d5) {

@@ -33,8 +33,8 @@ public class YatzyTest {
 
     @Test
     public void threes_scoring_category_should_sum_all_dices_with_three() {
-        assertEquals(6, Yatzy.threes(1, 2, 3, 2, 3));
-        assertEquals(12, Yatzy.threes(2, 3, 3, 3, 3));
+        assertEquals(6, new Yatzy(1, 2, 3, 2, 3).threes());
+        assertEquals(12, new Yatzy(2, 3, 3, 3, 3).threes());
     }
 
     @Test

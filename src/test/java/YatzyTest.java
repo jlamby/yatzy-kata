@@ -65,29 +65,29 @@ public class YatzyTest {
 
     @Test
     public void pair_scoring_category_should_return_sum_of_the_two_highest_matching_pair_of_dice() {
-        assertEquals(6, Yatzy.score_pair(3, 4, 3, 5, 6));
-        assertEquals(10, Yatzy.score_pair(5, 3, 3, 3, 5));
-        assertEquals(12, Yatzy.score_pair(5, 3, 6, 6, 5));
+        assertEquals(6, Yatzy.pair(3, 4, 3, 5, 6));
+        assertEquals(10, Yatzy.pair(5, 3, 3, 3, 5));
+        assertEquals(12, Yatzy.pair(5, 3, 6, 6, 5));
     }
 
     @Test
-    public void two_pair_scoring_category_should_return_sum_of_the_two_pairs_of_dice_with_the_same_number() {
-        assertEquals(16, Yatzy.two_pair(3, 3, 5, 4, 5));
-        assertEquals(16, Yatzy.two_pair(3, 3, 5, 5, 5));
+    public void twoPair_scoring_category_should_return_sum_of_the_two_pairs_of_dice_with_the_same_number() {
+        assertEquals(16, Yatzy.twoPair(3, 3, 5, 4, 5));
+        assertEquals(16, Yatzy.twoPair(3, 3, 5, 5, 5));
     }
 
     @Test
-    public void three_of_kind_scoring_category_should_return_sum_of_three_dice_with_the_same_number() {
-        assertEquals(9, Yatzy.three_of_a_kind(3, 3, 3, 4, 5));
-        assertEquals(15, Yatzy.three_of_a_kind(5, 3, 5, 4, 5));
-        assertEquals(9, Yatzy.three_of_a_kind(3, 3, 3, 3, 5));
+    public void threeOfKind_scoring_category_should_return_sum_of_three_dice_with_the_same_number() {
+        assertEquals(9, Yatzy.threeOfKind(3, 3, 3, 4, 5));
+        assertEquals(15, Yatzy.threeOfKind(5, 3, 5, 4, 5));
+        assertEquals(9, Yatzy.threeOfKind(3, 3, 3, 3, 5));
     }
 
     @Test
-    public void four_of_kind_scoring_category_should_return_sum_of_four_dice_with_the_same_number() {
-        assertEquals(12, Yatzy.four_of_a_kind(3, 3, 3, 3, 5));
-        assertEquals(20, Yatzy.four_of_a_kind(5, 5, 5, 4, 5));
-        assertEquals(9, Yatzy.three_of_a_kind(3, 3, 3, 3, 3));
+    public void fourOfKind_scoring_category_should_return_sum_of_four_dice_with_the_same_number() {
+        assertEquals(12, Yatzy.fourOfKind(3, 3, 3, 3, 5));
+        assertEquals(20, Yatzy.fourOfKind(5, 5, 5, 4, 5));
+        assertEquals(9, Yatzy.threeOfKind(3, 3, 3, 3, 3)); // !
     }
 
     @Test

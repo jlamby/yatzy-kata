@@ -13,11 +13,9 @@ public class YatzyTest {
 
     @Test
     public void yatzy_scoring_category_should_return_50_if_all_dices_have_the_same_number() {
-        int expected = 50;
-        int actual = Yatzy.yatzy(4, 4, 4, 4, 4);
-        assertEquals(expected, actual);
-        assertEquals(50, Yatzy.yatzy(6, 6, 6, 6, 6));
-        assertEquals(0, Yatzy.yatzy(6, 6, 6, 6, 3));
+        assertEquals(50, new Yatzy(4, 4, 4, 4, 4).yatzy());
+        assertEquals(50, new Yatzy(6, 6, 6, 6, 6).yatzy());
+        assertEquals(0, new Yatzy(6, 6, 6, 6, 3).yatzy());
     }
 
     @Test

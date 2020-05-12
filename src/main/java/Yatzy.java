@@ -53,7 +53,7 @@ public class Yatzy {
         return total;
     }
 
-    public static int yatzy(int... dice) {
+    public int yatzy() {
         int[] counts = new int[6];
 
         for (int die : dice) {
@@ -65,6 +65,7 @@ public class Yatzy {
                 return 50;
             }
         }
+
         return 0;
     }
 
